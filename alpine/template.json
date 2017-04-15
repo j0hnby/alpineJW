@@ -1,0 +1,66 @@
+{
+    "template": {
+        "name": "alpine", 
+        "author": "Oskari Rauta <oskari.rauta@gmail.com>", 
+        "description": "Alpine Linux Docker host for FreeNAS", 
+        "created_at": {
+            "$date": "2017-04-15T12:30:40"
+        }, 
+        "updated_at": {
+            "$date": "2017-04-15T12:30:40"
+        }, 
+        "files": true, 
+        "fetch": [
+            {
+                "name": "isoimage.bin", 
+                "url": "https://nl.alpinelinux.org/alpine/v3.5/releases/x86_64/alpine-extended-3.5.2-x86_64.iso", 
+                "sha256": "f5d2d5dc518c070a3b34e0787386744326177c1d61717bedf52e780e7b549954",
+                "dest": "images"
+            }
+        ]
+    }, 
+    "config": {
+        "docker_host": true, 
+        "ncpus": 2, 
+        "bootloader": "GRUB", 
+        "memsize": 2048,
+        "minmemsize": 1024,
+        "boot_directory": "grub", 
+        "autostart": true
+    }, 
+    "devices": [
+        {
+            "type": "NIC", 
+            "name": "mgmt", 
+            "properties": {
+                "mode": "MANAGEMENT"
+            }
+        }, 
+        {
+            "type": "NIC", 
+            "name": "bridge", 
+            "properties": {
+                "mode": "BRIDGED",
+                "bridge": "default"
+            }
+        }, 
+        {
+            "type": "VOLUME", 
+            "name": "docker", 
+            "properties": {
+                "type": "VT9P", 
+                "auto": true
+            }
+        }, 
+        {
+            "type": "VOLUME", 
+            "name": "mnt", 
+            "properties": {
+                "type": "VT9P", 
+                "destination": "/mnt", 
+                "auto": false
+            }
+        }
+    ], 
+    "guest_type": "linux64"
+}
