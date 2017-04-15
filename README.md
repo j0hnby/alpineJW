@@ -1,2 +1,2 @@
 # vm-templates
-FREENAS 10 VM Templates
+Welcome to the FreeNAS 10 VM extra templates archive
