@@ -14,13 +14,12 @@
             {
                 "name": "isoimage.bin", 
                 "url": "https://nl.alpinelinux.org/alpine/v3.5/releases/x86_64/alpine-extended-3.5.2-x86_64.iso", 
-                "sha256": "f5d2d5dc518c070a3b34e0787386744326177c1d61717bedf52e780e7b549954",
-                "dest": "images"
+                "sha256": "f5d2d5dc518c070a3b34e0787386744326177c1d61717bedf52e780e7b549954"
             },
             {
                 "name": "grub.cfg", 
-                "url": "", 
-                "sha256": "",
+                "url": "https://github.com/oskarirauta/vm-templates/raw/master/alpine/grub.cfg", 
+                "sha256": "3682c5d15d5aaec6f1277a5190b6f96cbcb73461f8c5169faad6d8b59520373d",
                 "dest": "grub"
             }
         ]
@@ -49,7 +48,14 @@
                 "mode": "BRIDGED",
                 "bridge": "default"
             }
-        }, 
+        },
+        {
+            "type": "CDROM", 
+            "name": "cd0", 
+            "properties": {
+                "source": "isoimage.bin"
+            }
+        },
         {
             "type": "VOLUME", 
             "name": "docker", 
