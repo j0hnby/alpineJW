@@ -16,6 +16,12 @@
                 "url": "https://nl.alpinelinux.org/alpine/v3.5/releases/x86_64/alpine-extended-3.5.2-x86_64.iso", 
                 "sha256": "f5d2d5dc518c070a3b34e0787386744326177c1d61717bedf52e780e7b549954",
                 "dest": "images"
+            },
+            {
+                "name": "grub.cfg", 
+                "url": "", 
+                "sha256": "",
+                "dest": "grub"
             }
         ]
     }, 
