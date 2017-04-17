@@ -12,16 +12,22 @@
         "files": true, 
         "fetch": [
             {
-                "name": "isoimage.bin", 
-                "url": "https://nl.alpinelinux.org/alpine/v3.5/releases/x86_64/alpine-extended-3.5.2-x86_64.iso", 
-                "sha256": "f5d2d5dc518c070a3b34e0787386744326177c1d61717bedf52e780e7b549954"
+                "name": "os", 
+                "url": "http://rauta.co/alpine/os.img.gz", 
+                "sha256": "045a523f0680ea647fd3cfd009b4886bce2af7457c8c763cbe5ba3ebe74727a9"
             },
             {
-                "name": "grub.cfg", 
-                "url": "https://github.com/oskarirauta/vm-templates/raw/master/alpine/grub.cfg", 
-                "sha256": "3682c5d15d5aaec6f1277a5190b6f96cbcb73461f8c5169faad6d8b59520373d",
+                "name": "vmlinuz-grsec", 
+                "url": "http://rauta.co/alpine/vmlinuz-grsec", 
+                "sha256": "b528b5b63ec67ca53196181afed17f99f23b53c6fb6c65a40244d23bf2d77c33",
                 "dest": "grub"
-            }
+            }, 
+            {
+                "name": "initramfs-grsec", 
+                "url": "http://rauta.co/alpine/initramfs-grsec", 
+                "sha256": "3fd527e6aecdfe0e8b4dc7d9c45adac5c33d033eb77f384c7e005b91ce51aff7",
+                "dest": "grub"
+            }            
         ]
     }, 
     "config": {
@@ -50,12 +56,14 @@
             }
         },
         {
-            "type": "CDROM", 
-            "name": "cd0", 
+            "type": "DISK", 
+            "name": "os", 
             "properties": {
-                "source": "isoimage.bin"
+                "size": 629145600, 
+                "mode": "AHCI", 
+                "source": "os"
             }
-        },
+        },        
         {
             "type": "VOLUME", 
             "name": "docker", 
