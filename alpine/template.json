@@ -1,6 +1,6 @@
 {
     "template": {
-        "name": "alpine2", 
+        "name": "alpine", 
         "author": "Oskari Rauta <oskari.rauta@gmail.com>", 
         "description": "Alpine Linux Docker host for FreeNAS", 
         "created_at": {
@@ -13,18 +13,18 @@
         "fetch": [
             {
                 "name": "os", 
-                "url": "http://rauta.co/alpine/os.img.gz", 
+                "url": "http://rauta.co/freenas-alpine/os.img.gz", 
                 "sha256": "045a523f0680ea647fd3cfd009b4886bce2af7457c8c763cbe5ba3ebe74727a9"
             },
             {
                 "name": "vmlinuz-grsec", 
-                "url": "http://rauta.co/alpine/vmlinuz-grsec", 
+                "url": "http://rauta.co/freenas-alpine/vmlinuz-grsec", 
                 "sha256": "b528b5b63ec67ca53196181afed17f99f23b53c6fb6c65a40244d23bf2d77c33",
                 "dest": "grub"
             }, 
             {
                 "name": "initramfs-grsec", 
-                "url": "http://rauta.co/alpine/initramfs-grsec", 
+                "url": "http://rauta.co/freenas-alpine/initramfs-grsec", 
                 "sha256": "3fd527e6aecdfe0e8b4dc7d9c45adac5c33d033eb77f384c7e005b91ce51aff7",
                 "dest": "grub"
             }            
