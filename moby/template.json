@@ -18,7 +18,7 @@
                 "dest": "grub"
             }, 
             {
-                "name": "initramfs-grsec", 
+                "name": "initrd", 
                 "url": "http://rauta.co/freenas-moby/initrd", 
                 "sha256": "82a7bd3c19cf500f57df592e6a51d0dd97da795181e2fc12d9ad0b0cda7ae4bd",
                 "dest": "grub"
