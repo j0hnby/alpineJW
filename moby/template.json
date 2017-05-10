@@ -1,0 +1,72 @@
+{
+    "template": {
+        "name": "moby", 
+        "author": "Oskari Rauta <oskari.rauta@gmail.com>", 
+        "description": "Moby Project Docker host for FreeNAS", 
+        "created_at": {
+            "$date": "2017-05-10T12:30:40"
+        }, 
+        "updated_at": {
+            "$date": "2017-05-10T12:30:40"
+        }, 
+        "files": true, 
+        "fetch": [
+            {
+                "name": "vmlinuz64", 
+                "url": "http://rauta.co/freenas-moby/vmlinuz64", 
+                "sha256": "6f56cb712549b0aa5c74689978f0947344370f1a855c2d9dcc5cdbb3ec4a8fde",
+                "dest": "grub"
+            }, 
+            {
+                "name": "initramfs-grsec", 
+                "url": "http://rauta.co/freenas-moby/initrd", 
+                "sha256": "82a7bd3c19cf500f57df592e6a51d0dd97da795181e2fc12d9ad0b0cda7ae4bd",
+                "dest": "grub"
+            }            
+        ]
+    }, 
+    "config": {
+        "docker_host": true, 
+        "ncpus": 2, 
+        "bootloader": "GRUB", 
+        "memsize": 2048,
+        "minmemsize": 1024,
+        "boot_directory": "grub",
+        "autostart": true
+    }, 
+    "devices": [
+        {
+            "type": "NIC", 
+            "name": "mgmt", 
+            "properties": {
+                "mode": "MANAGEMENT"
+            }
+        }, 
+        {
+            "type": "NIC", 
+            "name": "bridge", 
+            "properties": {
+                "mode": "BRIDGED",
+                "bridge": "default"
+            }
+        },
+        {
+            "type": "VOLUME", 
+            "name": "docker", 
+            "properties": {
+                "type": "VT9P", 
+                "auto": true
+            }
+        }, 
+        {
+            "type": "VOLUME", 
+            "name": "mnt", 
+            "properties": {
+                "type": "VT9P", 
+                "destination": "/mnt", 
+                "auto": false
+            }
+        }
+    ], 
+    "guest_type": "linux64"
+}
