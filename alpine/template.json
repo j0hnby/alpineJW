@@ -1,6 +1,6 @@
 {
     "template": {
-        "name": "alpine", 
+        "name": "alpineJW", 
         "author": "John", 
         "description": "Alpine Linux Docker host for FreeNAS", 
         "created_at": {
